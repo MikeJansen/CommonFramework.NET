@@ -5,6 +5,9 @@ using System.Text;
 
 namespace CommonFramework.Container
 {
+    /// <summary>
+    /// Abstraction for IoC/DI containers (abstracting the abstraction)
+    /// </summary>
     public interface IContainerManager: IDisposable
     {
         T GetInstance<T>();

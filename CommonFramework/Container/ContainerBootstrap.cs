@@ -5,7 +5,7 @@ using CommonFramework.Miscellaneous;
 
 namespace CommonFramework.Container
 {
-    public enum ContainerState { NotInitialized, Initialized, FailedInitialization, Disposed }
+    public enum ContainerState { NotInitialized, Initialized, FailedInitialization, PossibleJitInitialization, Disposed }
 
     public static class ContainerBootstrap
     {
@@ -28,27 +28,27 @@ namespace CommonFramework.Container
 
         public static IContainerManager Initialize(IContainerManager containerManager)
         {
-            return Initialize(containerManager, null, false);
+            return Initialize(containerManager, null, false, false);
         }
 
         public static IContainerManager Initialize(Assembly rootAssembly, bool plain)
         {
-            return Initialize(null, rootAssembly, plain);
+            return Initialize(null, rootAssembly, plain, false);
         }
 
         public static IContainerManager Initialize(Assembly rootAssembly)
         {
-            return Initialize(null, rootAssembly, false);
+            return Initialize(null, rootAssembly, false, false);
         }
 
         public static IContainerManager Initialize(bool plain)
         {
-            return Initialize(null, null, plain);
+            return Initialize(null, null, plain, false);
         }
 
         public static IContainerManager Initialize()
         {
-            return Initialize(null, null, false);
+            return Initialize(null, null, false, false);
         }
 
         public static void Dispose()
@@ -81,7 +81,7 @@ namespace CommonFramework.Container
             switch (_state)
             {
                 case ContainerState.NotInitialized:
-                    if (!initializing) throw new ContainerNotInitializedException();
+                    if (!initializing) Initialize(null, null, false, true); // attempt a JIT initialize
                     break;
                 case ContainerState.Initialized:
                     if (initializing) throw new ContainerAlreadyInitializedException();
@@ -93,11 +93,14 @@ namespace CommonFramework.Container
             }
         }
 
-        private static IContainerManager Initialize(IContainerManager containerManager, Assembly rootAssembly, bool plain)
+        private static IContainerManager Initialize(IContainerManager containerManager, Assembly rootAssembly, bool plain, bool attemptingJit)
         {
             lock (_syncRoot)
             {
-                CheckState(true);
+                if (!attemptingJit)
+                {
+                    CheckState(true);
+                }
 
                 // If the container manager has been provided, it's a piece of cake!
                 if (containerManager != null)
@@ -109,7 +112,11 @@ namespace CommonFramework.Container
                     // Not provided, we need to find the Container Bootstrap in the root assembly
                     try
                     {
-                        IContainerApplicationBootstrap bootstrap = GetApplicationBootstrap(rootAssembly ?? AssemblyUtil.GetRootAssembly());
+                        IContainerApplicationBootstrap bootstrap = GetApplicationBootstrap(rootAssembly);
+                        if (attemptingJit && !bootstrap.IsJitInitializable)
+                        {
+                            throw new ContainerNotInitializedException();
+                        }
                         _containerManager = bootstrap.Initialize(rootAssembly, plain);
                     }
                     catch
@@ -130,6 +137,8 @@ namespace CommonFramework.Container
 
         private static IContainerApplicationBootstrap GetApplicationBootstrap(Assembly rootAssembly)
         {
+            if (rootAssembly == null) rootAssembly = AssemblyUtil.GetRootAssembly();
+
             Type bootstrapType = 
                 (from type in rootAssembly.GetTypes() 
                  where typeof(IContainerApplicationBootstrap).IsAssignableFrom(type) 

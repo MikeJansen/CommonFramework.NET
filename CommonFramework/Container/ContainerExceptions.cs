@@ -15,7 +15,7 @@ namespace CommonFramework.Container
 
     public class ContainerNotInitializedException : ContainerException
     {
-        public ContainerNotInitializedException() : base("The container has not been initialized.") { }
+        public ContainerNotInitializedException() : base("The container has not been initialized and the boostrap loader does not support JIT initialization.") { }
     }
 
     public class ContainerFailedToInitializeException : ContainerException
