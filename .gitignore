@@ -1,0 +1,10 @@
+# git ignore file
+bin/
+obj/
+*.suo
+*.user
+_UpgradeReport_Files/
+UpgradeLog*.XML
+*.nupkg
+*~
+
