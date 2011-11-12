@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>CommonFramework.Ninject</id>
+    <version>0.1.0</version>
+    <authors>Mike Jansen</authors>
+    <owners>Mike Jansen</owners>
+    <description>Ninject adapter for CommonFramework.</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/MikeJansen/CommonFramework.NET</projectUrl>
+    <licenseUrl>https://github.com/MikeJansen/CommonFramework.NET/wiki/License</licenseUrl>
+    <iconUrl>http://i1122.photobucket.com/albums/l521/MikeJansen/common-fx.png</iconUrl>
+    <dependencies>
+    </dependencies>
+    <tags>FRAMEWORK ABSTRACTION NINJECT</tags>
+  </metadata>
+</package>
+
