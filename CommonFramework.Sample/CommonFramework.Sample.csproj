@@ -51,7 +51,6 @@
     <Compile Include="Impl\Normal.cs" />
     <Compile Include="Impl\Singleton.cs" />
     <Compile Include="MyCommonBinder.cs" />
-    <Compile Include="NinjectContainer\MyNinjectModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleContainerAppBootstrap.cs" />

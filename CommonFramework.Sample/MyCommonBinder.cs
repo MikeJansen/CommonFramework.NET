@@ -8,7 +8,7 @@ namespace CommonFramework.Sample
     /// <summary>
     /// Sample class to setup the IoC container for the app regardless of which container is used.
     /// </summary>
-    public class MyCommonBinder
+    public class MyCommonBinder: ICommonBinder
     {
         public void Bind(IContainerManager cm)
         {

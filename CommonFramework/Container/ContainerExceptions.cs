@@ -29,6 +29,13 @@ namespace CommonFramework.Container
             rootAssembly == null ? "null" : rootAssembly.FullName)) { }
     }
 
+    public class ContainerNoCommonBinderFoundException : ContainerException
+    {
+        public ContainerNoCommonBinderFoundException(Assembly rootAssembly)
+            : base(string.Format("No container common binder found in root assembly ({0}).",
+                rootAssembly == null ? "null" : rootAssembly.FullName)) { }
+    }
+
     public class ContainerDisposedException : ContainerException
     {
         public ContainerDisposedException() : base("The container has been disposed.") { }

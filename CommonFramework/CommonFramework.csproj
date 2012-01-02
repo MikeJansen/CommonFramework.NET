@@ -38,6 +38,8 @@
   <ItemGroup>
     <Compile Include="Container\ContainerExceptions.cs" />
     <Compile Include="Container\ContainerBootstrap.cs" />
+    <Compile Include="Container\ContainerInitializationOptions.cs" />
+    <Compile Include="Container\ICommonBinder.cs" />
     <Compile Include="Container\IContainerApplicationBootstrap.cs" />
     <Compile Include="Container\IContainerManager.cs" />
     <Compile Include="Miscellaneous\AssemblyUtil.cs" />

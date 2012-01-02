@@ -11,9 +11,9 @@ namespace CommonFramework.Container
         /// Initialize the container manager
         /// </summary>
         /// <param name="rootAssembly">Root assembly (may be null)</param>
-        /// <param name="plain">Is this a plain initialization (unit testing, for example) or should the default bindings be loaded?</param>
+        /// <param name="options">Initialization options</param>
         /// <returns>The initialized container manager</returns>
-        IContainerManager Initialize(Assembly rootAssembly, bool plain);
+        IContainerManager Initialize(Assembly rootAssembly, ContainerInitializationOptions options);
 
         /// <summary>
         /// Does this bootstrap loader support being initialized just-in-time without an explicit call to ContainerBootstrap.Initialize() ?

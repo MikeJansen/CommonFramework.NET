@@ -13,16 +13,8 @@ namespace CommonFramework.Sample
 
         static void Main(string[] args)
         {
-            Console.Write("Use common binder? [Y/n]?");
-            string input = Console.ReadLine();
-            UseCommonBinder = input.Length == 0 || Char.ToUpper(input[0]) == 'Y';
-
-            IContainerManager containerManager = ContainerBootstrap.Initialize();
-
-            if (UseCommonBinder)
-            {
-                new MyCommonBinder().Bind(containerManager);
-            }
+            // Should JIT load and use common binder
+            IContainerManager containerManager = ContainerBootstrap.Manager;
 
             containerManager.GetInstance<Glorp>();
 

@@ -22,6 +22,8 @@ namespace CommonFramework.Ninject
             _kernel = kernel;
         }
 
+        public NinjectContainerManager() : this(new StandardKernel()) { }
+
         #endregion
 
         #region IContainer Manager implementation
