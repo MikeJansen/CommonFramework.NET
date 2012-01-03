@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>CommonFramework</id>
+    <id>CommonFramework.Ninject</id>
     <version>0.5.0</version>
     <authors>Mike Jansen</authors>
     <owners>Mike Jansen</owners>
-    <description>Abstraction layer for common framework components like IoC, logging, etc.</description>
+    <description>Ninject adapter for CommonFramework.</description>
     <language>en-US</language>
     <projectUrl>https://github.com/MikeJansen/CommonFramework.NET</projectUrl>
     <licenseUrl>https://github.com/MikeJansen/CommonFramework.NET/wiki/License</licenseUrl>
     <iconUrl>http://i1122.photobucket.com/albums/l521/MikeJansen/common-fx.png</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>Breaking changes form 0.3 to implement simplified Initialize() options</releaseNotes>
-    <copyright></copyright>
     <dependencies>
+		<dependency id="CommonFramework" version="0.5.0" />
+		<dependency id="Ninject" version="2.2.1" />
     </dependencies>
-    <tags>FRAMEWORK ABSTRACTION</tags>
+    <tags>FRAMEWORK ABSTRACTION NINJECT</tags>
   </metadata>
 </package>
 
