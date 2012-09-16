@@ -38,6 +38,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Container\CommonBinderBase.cs" />
     <Compile Include="Container\ContainerExceptions.cs" />
     <Compile Include="Container\ContainerBootstrap.cs" />
     <Compile Include="Container\ContainerInitializationOptions.cs" />
@@ -46,11 +47,6 @@
     <Compile Include="Container\IContainerManager.cs" />
     <Compile Include="Miscellaneous\AssemblyUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CommonFramework.nuspec">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

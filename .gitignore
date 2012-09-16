@@ -7,7 +7,7 @@ _UpgradeReport_Files/
 UpgradeLog*.XML
 *.nupkg
 *~
-.nuget/ 
-packages/ 
-nuget/input/
-nuget/output/
+.nuget/
+packages/
+input/
+output/

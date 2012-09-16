@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CommonFramework.Container
 {
@@ -11,7 +8,9 @@ namespace CommonFramework.Container
     public interface IContainerManager: IDisposable
     {
         T GetInstance<T>();
+        T TryGetInstance<T>();
         T GetInstance<T>(string key);
+        T TryGetInstance<T>(string key);
         void Register(Type iface, Type implementation);
         void Register(Type iface, object instance);
         void Register<TIface, TImpl>()

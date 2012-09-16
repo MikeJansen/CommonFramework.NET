@@ -33,9 +33,19 @@ namespace CommonFramework.Ninject
             return _kernel.Get<T>();
         }
 
+        public T TryGetInstance<T>()
+        {
+            return _kernel.TryGet<T>();
+        }
+
         public T GetInstance<T>(string key)
         {
             return _kernel.Get<T>(key);
+        }
+
+        public T TryGetInstance<T>(string key)
+        {
+            return _kernel.TryGet<T>(key);
         }
 
         public void Register(Type iface, Type implementation)

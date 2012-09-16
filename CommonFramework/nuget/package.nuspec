@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CommonFramework</id>
-    <version>0.6.0</version>
+    <version>0.7.0</version>
     <authors>Mike Jansen</authors>
     <owners>Mike Jansen</owners>
     <description>Abstraction layer for common framework components like IoC, logging, etc.</description>
