@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CommonFramework.Container
 {
@@ -8,9 +9,15 @@ namespace CommonFramework.Container
     public interface IContainerManager: IDisposable
     {
         T GetInstance<T>();
+        object GetInstance(Type type);
         T TryGetInstance<T>();
+        object TryGetInstance(Type type);
         T GetInstance<T>(string key);
+        object GetInstance(Type type, string key);
         T TryGetInstance<T>(string key);
+        object TryGetInstance(Type type, string key);
+        IEnumerable<T> GetAll<T>();
+        IEnumerable<object> GetAll(Type type);
         void Register(Type iface, Type implementation);
         void Register(Type iface, object instance);
         void Register<TIface, TImpl>()

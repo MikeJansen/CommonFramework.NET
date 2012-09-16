@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CommonFramework.Container;
 using Ninject;
 
@@ -33,9 +34,19 @@ namespace CommonFramework.Ninject
             return _kernel.Get<T>();
         }
 
+        public object GetInstance(Type type)
+        {
+            return _kernel.Get(type);
+        }
+
         public T TryGetInstance<T>()
         {
             return _kernel.TryGet<T>();
+        }
+
+        public object TryGetInstance(Type type)
+        {
+            return _kernel.TryGet(type);
         }
 
         public T GetInstance<T>(string key)
@@ -43,9 +54,29 @@ namespace CommonFramework.Ninject
             return _kernel.Get<T>(key);
         }
 
+        public object GetInstance(Type type, string key)
+        {
+            return _kernel.Get(type, key);
+        }
+
         public T TryGetInstance<T>(string key)
         {
             return _kernel.TryGet<T>(key);
+        }
+
+        public object TryGetInstance(Type type, string key)
+        {
+            return _kernel.TryGet(type, key);
+        }
+
+        public IEnumerable<T> GetAll<T>()
+        {
+            return _kernel.GetAll<T>();
+        }
+
+        public IEnumerable<object> GetAll(Type type)
+        {
+            return _kernel.GetAll(type);
         }
 
         public void Register(Type iface, Type implementation)
