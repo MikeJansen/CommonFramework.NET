@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CommonFramework.Ninject</id>
-    <version>0.8.0</version>
+    <version>0.9.0</version>
     <authors>Mike Jansen</authors>
     <owners>Mike Jansen</owners>
     <description>Ninject adapter for CommonFramework.</description>
@@ -12,7 +12,7 @@
     <iconUrl>http://i1122.photobucket.com/albums/l521/MikeJansen/common-fx.png</iconUrl>
     <dependencies>
 		<dependency id="CommonFramework" version="0.8.0" />
-		<dependency id="Ninject" version="2.2.1" />
+		<dependency id="Ninject" version="3.0.0" />
     </dependencies>
     <tags>FRAMEWORK ABSTRACTION NINJECT</tags>
   </metadata>
